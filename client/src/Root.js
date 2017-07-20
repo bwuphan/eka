@@ -4,7 +4,7 @@ import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import configureStore from './configureStore';
 import App from './App';
-import Homepage from './components/Homepage/Homepage';
+import Form from './components/Form/Form';
 
 const store = configureStore();
 const history = syncHistoryWithStore(browserHistory, store);
@@ -13,8 +13,8 @@ const Root = () =>
   <Provider store={store}>
     <Router history={history}>
       <Route path="/" component={App}>
-        <IndexRoute component={Homepage} />
-        <Route path="/homepage" component={Homepage} />
+        <IndexRoute component={Form} />
+        <Route path="/form" component={Form} />
       </Route>
     </Router>
   </Provider>;

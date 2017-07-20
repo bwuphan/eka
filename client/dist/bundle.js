@@ -27996,9 +27996,9 @@ var _App = __webpack_require__(104);
 
 var _App2 = _interopRequireDefault(_App);
 
-var _Homepage = __webpack_require__(296);
+var _Form = __webpack_require__(965);
 
-var _Homepage2 = _interopRequireDefault(_Homepage);
+var _Form2 = _interopRequireDefault(_Form);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -28015,8 +28015,8 @@ var Root = function Root() {
       _react2.default.createElement(
         _reactRouter.Route,
         { path: '/', component: _App2.default },
-        _react2.default.createElement(_reactRouter.IndexRoute, { component: _Homepage2.default }),
-        _react2.default.createElement(_reactRouter.Route, { path: '/homepage', component: _Homepage2.default })
+        _react2.default.createElement(_reactRouter.IndexRoute, { component: _Form2.default }),
+        _react2.default.createElement(_reactRouter.Route, { path: '/form', component: _Form2.default })
       )
     )
   );
@@ -30728,7 +30728,10 @@ var _redux = __webpack_require__(110);
 
 var _reactRouterRedux = __webpack_require__(130);
 
+var _index = __webpack_require__(966);
+
 var appReducer = (0, _redux.combineReducers)({
+  form: _index.form,
   routing: _reactRouterRedux.routerReducer
 });
 
@@ -30745,60 +30748,7 @@ exports.default = function (state, action) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(65)))
 
 /***/ }),
-/* 296 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(3);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Homepage = function (_Component) {
-  _inherits(Homepage, _Component);
-
-  function Homepage(props) {
-    _classCallCheck(this, Homepage);
-
-    return _possibleConstructorReturn(this, (Homepage.__proto__ || Object.getPrototypeOf(Homepage)).call(this, props));
-  }
-
-  _createClass(Homepage, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(
-          'h2',
-          null,
-          'Homepage'
-        )
-      );
-    }
-  }]);
-
-  return Homepage;
-}(_react.Component);
-
-exports.default = Homepage;
-
-/***/ }),
+/* 296 */,
 /* 297 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -67842,6 +67792,116 @@ Feed.User = __WEBPACK_IMPORTED_MODULE_16__FeedUser__["a" /* default */];
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__Statistic__["a"]; });
 
 
+
+/***/ }),
+/* 965 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(3);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Form = function (_Component) {
+  _inherits(Form, _Component);
+
+  function Form(props) {
+    _classCallCheck(this, Form);
+
+    return _possibleConstructorReturn(this, (Form.__proto__ || Object.getPrototypeOf(Form)).call(this, props));
+  }
+
+  _createClass(Form, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'h2',
+          null,
+          'Form placeholder'
+        )
+      );
+    }
+  }]);
+
+  return Form;
+}(_react.Component);
+
+exports.default = Form;
+
+/***/ }),
+/* 966 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.form = exports.initialState = undefined;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _constants = __webpack_require__(967);
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var initialState = exports.initialState = {
+  carrierName: '',
+  firstName: '',
+  lastName: '',
+  email: '',
+  password: '',
+  password2: '',
+  passwordHint: '',
+  broker: '',
+  mc: '',
+  usdot: '',
+  ownerOrOperator: ''
+};
+
+var form = exports.form = function form() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments[1];
+
+  switch (action.type) {
+    case _constants.CHANGE_FORM_FIELD:
+      return _extends({}, state, _defineProperty({}, action.field, action.value));
+    default:
+      return state;
+  }
+};
+
+/***/ }),
+/* 967 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var CHANGE_FORM_FIELD = exports.CHANGE_FORM_FIELD = 'CHANGE_FORM_FIELD';
 
 /***/ })
 /******/ ]);
