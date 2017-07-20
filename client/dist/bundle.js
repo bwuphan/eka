@@ -67873,6 +67873,8 @@ var _semanticUiReact = __webpack_require__(647);
 
 var _reactRedux = __webpack_require__(105);
 
+var _index = __webpack_require__(971);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -67907,6 +67909,7 @@ var Signup = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
+      var brokerCategories = [{ key: 0, text: 'Technology', value: 'technology' }, { key: 1, text: 'Home Improvement', value: 'home improvement' }];
       return _react2.default.createElement(
         'div',
         null,
@@ -67914,6 +67917,145 @@ var Signup = function (_Component) {
           'h2',
           null,
           'Signup placeholder'
+        ),
+        _react2.default.createElement(
+          _semanticUiReact.Grid,
+          { width: 16 },
+          _react2.default.createElement(_semanticUiReact.Grid.Column, { width: 4 }),
+          _react2.default.createElement(
+            _semanticUiReact.Grid.Column,
+            { width: 8 },
+            _react2.default.createElement(
+              _semanticUiReact.Form,
+              null,
+              _react2.default.createElement(
+                _semanticUiReact.Form.Field,
+                null,
+                _react2.default.createElement(
+                  'label',
+                  null,
+                  'Carrier Name'
+                ),
+                _react2.default.createElement('input', { placeholder: 'Carrier Name' })
+              ),
+              _react2.default.createElement(
+                _semanticUiReact.Form.Field,
+                null,
+                _react2.default.createElement(
+                  'label',
+                  null,
+                  'First Name'
+                ),
+                _react2.default.createElement('input', { placeholder: 'First Name' })
+              ),
+              _react2.default.createElement(
+                _semanticUiReact.Form.Field,
+                null,
+                _react2.default.createElement(
+                  'label',
+                  null,
+                  'Last Name'
+                ),
+                _react2.default.createElement('input', { placeholder: 'Last Name' })
+              ),
+              _react2.default.createElement(
+                _semanticUiReact.Form.Field,
+                null,
+                _react2.default.createElement(
+                  'label',
+                  null,
+                  'Email'
+                ),
+                _react2.default.createElement('input', { placeholder: 'Email' })
+              ),
+              _react2.default.createElement(
+                _semanticUiReact.Form.Field,
+                null,
+                _react2.default.createElement(
+                  'label',
+                  null,
+                  'Password'
+                ),
+                _react2.default.createElement('input', { placeholder: 'Password' })
+              ),
+              _react2.default.createElement(
+                _semanticUiReact.Form.Field,
+                null,
+                _react2.default.createElement(
+                  'label',
+                  null,
+                  'Confirm Password'
+                ),
+                _react2.default.createElement('input', { placeholder: 'Confirm Password' })
+              ),
+              _react2.default.createElement(
+                _semanticUiReact.Form.Field,
+                null,
+                _react2.default.createElement(
+                  'label',
+                  null,
+                  'Password Hint'
+                ),
+                _react2.default.createElement('input', { placeholder: 'Password Hint' })
+              ),
+              _react2.default.createElement(
+                _semanticUiReact.Form.Field,
+                { className: 'ui center aligned grid' },
+                _react2.default.createElement(
+                  'label',
+                  { htmlFor: 'category' },
+                  'Broker'
+                ),
+                _react2.default.createElement(_semanticUiReact.Dropdown, {
+                  fluid: true,
+                  selection: true,
+                  options: brokerCategories,
+                  placeholder: 'Select type of job here',
+                  label: 'Profession'
+                })
+              ),
+              _react2.default.createElement(
+                _semanticUiReact.Form.Field,
+                null,
+                _react2.default.createElement(
+                  'label',
+                  null,
+                  'Please provide one of the following'
+                ),
+                _react2.default.createElement('input', { placeholder: 'MC#' })
+              ),
+              _react2.default.createElement(
+                _semanticUiReact.Form.Field,
+                null,
+                _react2.default.createElement(
+                  'label',
+                  null,
+                  'or'
+                ),
+                _react2.default.createElement('input', { placeholder: 'USDOT#' })
+              ),
+              _react2.default.createElement(
+                _semanticUiReact.Form.Field,
+                { className: 'ui center aligned grid' },
+                _react2.default.createElement(
+                  'label',
+                  { htmlFor: 'category' },
+                  'Are you a single owner/operation?'
+                ),
+                _react2.default.createElement(_semanticUiReact.Dropdown, {
+                  fluid: true,
+                  selection: true,
+                  options: brokerCategories,
+                  placeholder: 'Select'
+                })
+              ),
+              _react2.default.createElement(
+                _semanticUiReact.Button,
+                { type: 'submit' },
+                'Submit'
+              )
+            )
+          )
         )
       );
     }
@@ -67923,6 +68065,29 @@ var Signup = function (_Component) {
 }(_react.Component);
 
 exports.default = Signup;
+;
+
+/***/ }),
+/* 971 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.changeFormField = undefined;
+
+var _constants = __webpack_require__(969);
+
+var changeFormField = exports.changeFormField = function changeFormField(field, value) {
+  return {
+    type: _constants.CHANGE_FORM_FIELD,
+    field: field,
+    value: value
+  };
+};
 
 /***/ })
 /******/ ]);
