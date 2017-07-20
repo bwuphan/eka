@@ -14,7 +14,7 @@ export const initialState = {
   ownerOrOperator: '',
 };
 
-export const form = (state = initialState, action) => {
+export const signup = (state = initialState, action) => {
   switch (action.type) {
     case CHANGE_FORM_FIELD:
       return ({ ...state, [action.field]: action.value });
