@@ -1,10 +1,10 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
-import configureStore from './configureStore';
 import { syncHistoryWithStore } from 'react-router-redux';
+import configureStore from './configureStore';
 import App from './App';
-import Homepage from './components/Homepage/Homepage.js';
+import Homepage from './components/Homepage/Homepage';
 
 const store = configureStore();
 const history = syncHistoryWithStore(browserHistory, store);
