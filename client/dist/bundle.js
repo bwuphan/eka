@@ -67910,6 +67910,7 @@ var Signup = function (_Component) {
     key: 'render',
     value: function render() {
       var brokerCategories = [{ key: 0, text: 'Technology', value: 'technology' }, { key: 1, text: 'Home Improvement', value: 'home improvement' }];
+      console.log('hello', this.props);
       return _react2.default.createElement(
         'div',
         null,
@@ -68064,8 +68065,26 @@ var Signup = function (_Component) {
   return Signup;
 }(_react.Component);
 
-exports.default = Signup;
 ;
+
+var mapStateToProps = function mapStateToProps(state) {
+  var _state$signup = state.signup,
+      carrierName = _state$signup.carrierName,
+      firstName = _state$signup.firstName,
+      lastName = _state$signup.lastName,
+      email = _state$signup.email,
+      password = _state$signup.password,
+      password2 = _state$signup.password2,
+      passwordHint = _state$signup.passwordHint,
+      broker = _state$signup.broker,
+      mc = _state$signup.mc,
+      usdot = _state$signup.usdot,
+      ownerOrOperator = _state$signup.ownerOrOperator;
+
+  return { carrierName: carrierName, firstName: firstName, lastName: lastName, email: email, password: password, password2: password2, passwordHint: passwordHint, broker: broker, mc: mc, usdot: usdot, ownerOrOperator: ownerOrOperator };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(Signup);
 
 /***/ }),
 /* 971 */

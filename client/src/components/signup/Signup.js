@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { changeFieldForm } from './actions/index';
 
 
-export default class Signup extends Component {
+class Signup extends Component {
   constructor(props) {
     super(props);
     this.onSubmit = this.onSubmit.bind(this);
@@ -24,6 +24,7 @@ export default class Signup extends Component {
       { key: 0, text: 'Technology', value: 'technology' },
       { key: 1, text: 'Home Improvement', value: 'home improvement' },
     ];
+    console.log('hello', this.props);
     return (
       <div>
         <h2>Signup placeholder</h2>
@@ -94,3 +95,11 @@ export default class Signup extends Component {
     );
   }
 };
+
+
+const mapStateToProps = (state) => {
+  const { carrierName, firstName, lastName, email, password, password2, passwordHint, broker, mc, usdot, ownerOrOperator } = state.signup;
+  return { carrierName, firstName, lastName, email, password, password2, passwordHint, broker, mc, usdot, ownerOrOperator };
+};
+
+export default connect(mapStateToProps)(Signup);
