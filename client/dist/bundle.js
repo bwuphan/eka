@@ -67820,7 +67820,6 @@ var initialState = exports.initialState = {
   lastName: '',
   email: '',
   password: '',
-  password2: '',
   passwordHint: '',
   broker: '',
   mc: '',
@@ -67877,6 +67876,8 @@ var _index = __webpack_require__(971);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -67892,6 +67893,7 @@ var Signup = function (_Component) {
     var _this = _possibleConstructorReturn(this, (Signup.__proto__ || Object.getPrototypeOf(Signup)).call(this, props));
 
     _this.onSubmit = _this.onSubmit.bind(_this);
+    _this.onChange = _this.onChange.bind(_this);
     return _this;
   }
 
@@ -67899,18 +67901,32 @@ var Signup = function (_Component) {
     key: 'onSubmit',
     value: function onSubmit(e) {
       e.preventDefault();
-      console.log("hello");
     }
   }, {
     key: 'onChange',
-    value: function onChange(e) {
-      console.log('change', e);
+    value: function onChange(e, data) {
+      this.props.dispatch((0, _index.changeFormField)(data.name || e.target.name, data.value || e.target.value));
     }
   }, {
     key: 'render',
     value: function render() {
+      var _this2 = this,
+          _React$createElement;
+
       var brokerCategories = [{ key: 0, text: 'Technology', value: 'technology' }, { key: 1, text: 'Home Improvement', value: 'home improvement' }];
-      console.log('hello', this.props);
+      var _props = this.props,
+          carrierName = _props.carrierName,
+          firstName = _props.firstName,
+          lastName = _props.lastName,
+          email = _props.email,
+          password = _props.password,
+          passwordHint = _props.passwordHint,
+          broker = _props.broker,
+          mc = _props.mc,
+          usdot = _props.usdot,
+          ownerOrOperator = _props.ownerOrOperator,
+          onChange = _props.onChange;
+
       return _react2.default.createElement(
         'div',
         null,
@@ -67937,7 +67953,13 @@ var Signup = function (_Component) {
                   null,
                   'Carrier Name'
                 ),
-                _react2.default.createElement('input', { placeholder: 'Carrier Name' })
+                _react2.default.createElement('input', {
+                  name: 'carrierName',
+                  placeholder: 'Carrier Name',
+                  onChange: function onChange(e) {
+                    return _this2.onChange(e);
+                  }
+                })
               ),
               _react2.default.createElement(
                 _semanticUiReact.Form.Field,
@@ -67947,7 +67969,10 @@ var Signup = function (_Component) {
                   null,
                   'First Name'
                 ),
-                _react2.default.createElement('input', { placeholder: 'First Name' })
+                _react2.default.createElement('input', {
+                  placeholder: 'First Name',
+                  name: 'firstName'
+                })
               ),
               _react2.default.createElement(
                 _semanticUiReact.Form.Field,
@@ -67957,7 +67982,10 @@ var Signup = function (_Component) {
                   null,
                   'Last Name'
                 ),
-                _react2.default.createElement('input', { placeholder: 'Last Name' })
+                _react2.default.createElement('input', {
+                  name: 'lastName',
+                  placeholder: 'Last Name'
+                })
               ),
               _react2.default.createElement(
                 _semanticUiReact.Form.Field,
@@ -67967,7 +67995,10 @@ var Signup = function (_Component) {
                   null,
                   'Email'
                 ),
-                _react2.default.createElement('input', { placeholder: 'Email' })
+                _react2.default.createElement('input', {
+                  name: 'email',
+                  placeholder: 'Email'
+                })
               ),
               _react2.default.createElement(
                 _semanticUiReact.Form.Field,
@@ -67977,7 +68008,10 @@ var Signup = function (_Component) {
                   null,
                   'Password'
                 ),
-                _react2.default.createElement('input', { placeholder: 'Password' })
+                _react2.default.createElement('input', {
+                  name: 'password',
+                  placeholder: 'Password'
+                })
               ),
               _react2.default.createElement(
                 _semanticUiReact.Form.Field,
@@ -67987,7 +68021,9 @@ var Signup = function (_Component) {
                   null,
                   'Confirm Password'
                 ),
-                _react2.default.createElement('input', { placeholder: 'Confirm Password' })
+                _react2.default.createElement('input', {
+                  placeholder: 'Confirm Password'
+                })
               ),
               _react2.default.createElement(
                 _semanticUiReact.Form.Field,
@@ -67997,7 +68033,10 @@ var Signup = function (_Component) {
                   null,
                   'Password Hint'
                 ),
-                _react2.default.createElement('input', { placeholder: 'Password Hint' })
+                _react2.default.createElement('input', {
+                  name: 'passwordHint',
+                  placeholder: 'Password Hint'
+                })
               ),
               _react2.default.createElement(
                 _semanticUiReact.Form.Field,
@@ -68008,11 +68047,15 @@ var Signup = function (_Component) {
                   'Broker'
                 ),
                 _react2.default.createElement(_semanticUiReact.Dropdown, {
+                  name: 'broker',
                   fluid: true,
                   selection: true,
                   options: brokerCategories,
                   placeholder: 'Select type of job here',
-                  label: 'Profession'
+                  label: 'Profession',
+                  onChange: function onChange(e, data) {
+                    return _this2.onChange(e, data);
+                  }
                 })
               ),
               _react2.default.createElement(
@@ -68023,7 +68066,10 @@ var Signup = function (_Component) {
                   null,
                   'Please provide one of the following'
                 ),
-                _react2.default.createElement('input', { placeholder: 'MC#' })
+                _react2.default.createElement('input', {
+                  name: 'mc',
+                  placeholder: 'MC#'
+                })
               ),
               _react2.default.createElement(
                 _semanticUiReact.Form.Field,
@@ -68033,7 +68079,10 @@ var Signup = function (_Component) {
                   null,
                   'or'
                 ),
-                _react2.default.createElement('input', { placeholder: 'USDOT#' })
+                _react2.default.createElement('input', {
+                  name: 'usdot',
+                  placeholder: 'USDOT#'
+                })
               ),
               _react2.default.createElement(
                 _semanticUiReact.Form.Field,
@@ -68043,12 +68092,10 @@ var Signup = function (_Component) {
                   { htmlFor: 'category' },
                   'Are you a single owner/operation?'
                 ),
-                _react2.default.createElement(_semanticUiReact.Dropdown, {
-                  fluid: true,
-                  selection: true,
-                  options: brokerCategories,
-                  placeholder: 'Select'
-                })
+                _react2.default.createElement(_semanticUiReact.Dropdown, (_React$createElement = {
+                  name: 'broker',
+                  fluid: true
+                }, _defineProperty(_React$createElement, 'name', 'ownerOrOperator'), _defineProperty(_React$createElement, 'selection', true), _defineProperty(_React$createElement, 'options', brokerCategories), _defineProperty(_React$createElement, 'placeholder', 'Select'), _React$createElement))
               ),
               _react2.default.createElement(
                 _semanticUiReact.Button,
@@ -68074,14 +68121,13 @@ var mapStateToProps = function mapStateToProps(state) {
       lastName = _state$signup.lastName,
       email = _state$signup.email,
       password = _state$signup.password,
-      password2 = _state$signup.password2,
       passwordHint = _state$signup.passwordHint,
       broker = _state$signup.broker,
       mc = _state$signup.mc,
       usdot = _state$signup.usdot,
       ownerOrOperator = _state$signup.ownerOrOperator;
 
-  return { carrierName: carrierName, firstName: firstName, lastName: lastName, email: email, password: password, password2: password2, passwordHint: passwordHint, broker: broker, mc: mc, usdot: usdot, ownerOrOperator: ownerOrOperator };
+  return { carrierName: carrierName, firstName: firstName, lastName: lastName, email: email, password: password, passwordHint: passwordHint, broker: broker, mc: mc, usdot: usdot, ownerOrOperator: ownerOrOperator };
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(Signup);

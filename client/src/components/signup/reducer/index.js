@@ -6,7 +6,6 @@ export const initialState = {
   lastName: '',
   email: '',
   password: '',
-  password2: '',
   passwordHint: '',
   broker: '',
   mc: '',

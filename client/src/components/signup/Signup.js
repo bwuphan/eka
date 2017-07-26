@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
 import { Button, Form, Grid, Header, Icon, Dropdown } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import { changeFieldForm } from './actions/index';
+import { changeFormField } from './actions/index';
 
 
 class Signup extends Component {
   constructor(props) {
     super(props);
     this.onSubmit = this.onSubmit.bind(this);
+    this.onChange = this.onChange.bind(this);
   }
 
   onSubmit(e) {
     e.preventDefault();
-    console.log("hello");
   }
 
-  onChange(e) {
-    console.log('change', e);
+  onChange(e, data) {
+    this.props.dispatch(changeFormField(data.name || e.target.name, data.value || e.target.value));
   }
 
   render() {
@@ -24,7 +24,7 @@ class Signup extends Component {
       { key: 0, text: 'Technology', value: 'technology' },
       { key: 1, text: 'Home Improvement', value: 'home improvement' },
     ];
-    console.log('hello', this.props);
+    const { carrierName, firstName, lastName, email, password, passwordHint, broker, mc, usdot, ownerOrOperator, onChange } = this.props;
     return (
       <div>
         <h2>Signup placeholder</h2>
@@ -34,54 +34,85 @@ class Signup extends Component {
             <Form>
               <Form.Field>
                 <label>Carrier Name</label>
-                <input placeholder='Carrier Name' />
+                <input
+                  name='carrierName'
+                  placeholder='Carrier Name'
+                  onChange={e => this.onChange(e)}
+                />
               </Form.Field>
               <Form.Field>
                 <label>First Name</label>
-                <input placeholder='First Name' />
+                <input
+                  placeholder='First Name'
+                  name='firstName'
+                />
               </Form.Field>
               <Form.Field>
                 <label>Last Name</label>
-                <input placeholder='Last Name' />
+                <input
+                  name='lastName'
+                  placeholder='Last Name'
+                />
               </Form.Field>
               <Form.Field>
                 <label>Email</label>
-                <input placeholder='Email' />
+                <input
+                  name='email'
+                  placeholder='Email'
+                />
               </Form.Field>
               <Form.Field>
                 <label>Password</label>
-                <input placeholder='Password' />
+                <input
+                  name='password'
+                  placeholder='Password'
+                />
               </Form.Field>
               <Form.Field>
                 <label>Confirm Password</label>
-                <input placeholder='Confirm Password' />
+                <input
+                  placeholder='Confirm Password'
+                />
               </Form.Field>
               <Form.Field>
                 <label>Password Hint</label>
-                <input placeholder='Password Hint' />
+                <input
+                  name='passwordHint'
+                  placeholder='Password Hint'
+                />
               </Form.Field>
               <Form.Field className="ui center aligned grid">
                 <label htmlFor="category">Broker</label>
                 <Dropdown
+                  name='broker'
                   fluid
                   selection
                   options={brokerCategories}
                   placeholder="Select type of job here"
                   label="Profession"
+                  onChange={(e, data) => this.onChange(e, data)}
                 />
               </Form.Field>
               <Form.Field>
                 <label>Please provide one of the following</label>
-                <input placeholder='MC#' />
+                <input
+                  name='mc'
+                  placeholder='MC#'
+                />
               </Form.Field>
               <Form.Field>
                 <label>or</label>
-                <input placeholder='USDOT#' />
+                <input
+                  name='usdot'
+                  placeholder='USDOT#'
+                />
               </Form.Field>
               <Form.Field className="ui center aligned grid">
                 <label htmlFor="category">Are you a single owner/operation?</label>
                 <Dropdown
+                  name='broker'
                   fluid
+                  name='ownerOrOperator'
                   selection
                   options={brokerCategories}
                   placeholder="Select"
@@ -98,8 +129,8 @@ class Signup extends Component {
 
 
 const mapStateToProps = (state) => {
-  const { carrierName, firstName, lastName, email, password, password2, passwordHint, broker, mc, usdot, ownerOrOperator } = state.signup;
-  return { carrierName, firstName, lastName, email, password, password2, passwordHint, broker, mc, usdot, ownerOrOperator };
+  const { carrierName, firstName, lastName, email, password, passwordHint, broker, mc, usdot, ownerOrOperator } = state.signup;
+  return { carrierName, firstName, lastName, email, password, passwordHint, broker, mc, usdot, ownerOrOperator };
 };
 
 export default connect(mapStateToProps)(Signup);
